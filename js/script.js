@@ -63,6 +63,25 @@ buttonNext.addEventListener("click", () => {
 
 renderPokemon(searchPokemon);
 
+// Botão de ligar/desligar a Pokédex 
+const powerBtnContainer = document.getElementById("powerButton")
+const pokedexUI = document.querySelector(".pokedex-ui")
+const redLed = document.querySelector(".red")
+const yellowLed = document.querySelector(".yellow")
+const greenLed = document.querySelector(".green")
+
+let isOn = true
+
+powerBtnContainer.addEventListener("click", () => {
+  isOn = !isOn
+  
+  pokedexUI.classList.toggle("pokedex-off", !isOn)
+  if (isOn) {
+    searchPokemon = 1;      
+    renderPokemon(1); 
+  }
+})
+
 // === 🌠 Estrelas aleatórias no fundo ===
 document.addEventListener("DOMContentLoaded", () => {
   const totalStars = 80;
