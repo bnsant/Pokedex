@@ -24,16 +24,27 @@ const renderPokemon = async (pokemon) => {
   
   pokemonName.innerHTML = "Loading..."
   pokemonNumber.innerHTML = ""
+
   const data = await fetchPokemon(pokemon)
 
   if (data) {
-    pokemonImage.style.display = "block"
     pokemonName.innerHTML = data.name
     pokemonNumber.innerHTML = data.id
-    pokemonImage.src =
-      data["sprites"]["versions"]["generation-v"]["black-white"]["animated"][
-        "front_default"
-      ]
+
+
+    const animatedSprite =
+      data.sprites?.versions?.["generation-v"]?.["black-white"]?.animated
+        ?.front_default
+
+
+    const staticSprite = data.sprites?.front_default
+
+   
+    if (animatedSprite || staticSprite) {
+      pokemonImage.src = animatedSprite || staticSprite
+      pokemonImage.style.display = "block"
+    }
+
     input.value = ""
     searchPokemon = data.id
   } else {
@@ -66,9 +77,6 @@ renderPokemon(searchPokemon);
 // Botão de ligar/desligar a Pokédex 
 const powerBtnContainer = document.getElementById("powerButton")
 const pokedexUI = document.querySelector(".pokedex-ui")
-const redLed = document.querySelector(".red")
-const yellowLed = document.querySelector(".yellow")
-const greenLed = document.querySelector(".green")
 
 let isOn = true
 
