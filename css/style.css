@@ -9,8 +9,9 @@
 
 body {
   text-align: center;
-  background: linear-gradient(to bottom, #6ab7f5, #fff);
+  background: linear-gradient(to bottom, #aee1f9, #ffffff);
   min-height: 100vh;
+  
 }
 
 main {
@@ -94,3 +95,84 @@ main {
   
 }
 
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom, #0d1b2a, #1b263b, #415a77); /* Céu escuro com profundidade */
+  overflow: hidden;
+}
+
+/* Estrelas */
+.star {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: twinkle 2s infinite ease-in-out alternate;
+  z-index: -1;
+}
+
+@keyframes twinkle {
+  0% { opacity: 0.3; transform: scale(1); }
+  100% { opacity: 1; transform: scale(1.3); }
+
+}
+
+.moon {
+  position: fixed;
+  top: 40px;
+  right: 40px;
+  width: 200px;
+  height: 100px;
+  background: url("../images/lua.png") no-repeat center center;
+  background-size: contain;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.9;
+  animation:
+    fadeIn 2s ease-in-out forwards,
+    
+    pulse 3s ease-in-out infinite;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 0.95;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 2px #fff) brightness(1);
+    transform: scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 6px #fff) brightness(1.2);
+    transform: scale(1.05);
+  }
+}
+
+.shooting-star {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 3px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 6px white;
+  z-index: -1;
+  animation: shoot 1s ease-out forwards;
+  pointer-events: none;
+}
+
+@keyframes shoot {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(600px, 400px) scale(0.2);
+    opacity: 0;
+  }
+}

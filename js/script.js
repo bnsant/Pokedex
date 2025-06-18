@@ -59,3 +59,56 @@ buttonNext.addEventListener("click", () => {
 });
 
 renderPokemon(searchPokemon);
+
+// === 🌠 Estrelas aleatórias no fundo ===
+document.addEventListener("DOMContentLoaded", () => {
+  const totalStars = 80;
+
+  for (let i = 0; i < totalStars; i++) {
+    const star = document.createElement("div");
+    star.classList.add("star");
+
+    const size = Math.random() * 2 + 1; // 1 a 3 px
+    const top = Math.random() * 100;
+    const left = Math.random() * 100;
+
+    star.style.width = `${size}px`;
+    star.style.height = `${size}px`;
+    star.style.top = `${top}vh`;
+    star.style.left = `${left}vw`;
+
+    document.body.appendChild(star);
+  }
+});
+
+// === 🌙 Lua no fundo ===
+
+const moon = document.createElement("div")
+moon.classList.add("moon")
+document.body.appendChild(moon)
+
+// Estrela Cadentes 
+function createShootingStar() {
+  const star = document.createElement("div")
+  star.classList.add("shooting-star")
+
+  // Posição aleatória no topo da tela
+  star.style.top = `${Math.random() * 20}vh`
+  star.style.left = `${Math.random() * 80}vw`
+
+  document.body.appendChild(star)
+
+  // Remove após animação
+  setTimeout(() => {
+    star.remove()
+  }, 1000)
+}
+
+// Cria uma estrela a cada 5–10 segundos (de forma aleatória) xd
+setInterval(() => {
+  if (Math.random() < 0.5) {
+    createShootingStar()
+  }
+}, 5000)
+
+
