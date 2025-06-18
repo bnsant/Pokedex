@@ -102,6 +102,37 @@ body {
   overflow: hidden;
 }
 
+.powerButtonContainer {
+  position: absolute;
+  top: 13%;
+  right: 22%;
+  width: 50px;
+  height: 50px;
+  background-color: #a6002d;
+  border: 2px solid black;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.powerButtonContainer:hover {
+  opacity: 0.8;
+}
+
+.powerButtonContainer:active {
+  transform: scale(0.95);
+}
+
+.powerButtonContainer img#powerBtn {
+  width: 80%;
+  height: 80%;
+  pointer-events: none;
+}
+
+
 /* Estrelas */
 .star {
   position: absolute;
@@ -131,7 +162,6 @@ body {
   opacity: 0.9;
   animation:
     fadeIn 2s ease-in-out forwards,
-    
     pulse 3s ease-in-out infinite;
 }
 
