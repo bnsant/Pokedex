@@ -150,10 +150,11 @@ body {
 }
 
 .moon {
-  position: fixed;
-  top: 40px;
-  right: 40px;
-  width: 200px;
+  position: absolute;
+  top: 2vw;
+  right: 2vw;
+  width: 10vw;
+  max-width: 100px;
   height: 100px;
   background: url("../images/lua.png") no-repeat center center;
   background-size: contain;
